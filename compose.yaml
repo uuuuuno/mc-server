@@ -5,7 +5,7 @@ services:
     image: itzg/bungeecord
     restart: unless-stopped
     networks:
-      - velocity-network
+      - velocity
     volumes: 
       - ./mc-velocity:/server
     ports:
@@ -19,7 +19,7 @@ services:
     image: itzg/minecraft-server
     restart: unless-stopped
     networks:
-      - velocity-network
+      - velocity
     # ports:
     #   - "25566:25565"
     volumes:
@@ -35,7 +35,7 @@ services:
     image: itzg/minecraft-server
     restart: unless-stopped
     networks:
-      - velocity-network
+      - velocity
     # ports:
     #   - "25567:25565"
     volumes:
@@ -46,5 +46,5 @@ services:
       TYPE: PAPER
       MEMORY: 3G
 networks:
-  vepocity:
+  velocity:
     name: velocity-network
