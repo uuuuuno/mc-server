@@ -20,8 +20,6 @@ services:
     restart: unless-stopped
     networks:
       - velocity
-    # ports:
-    #   - "25566:25565"
     volumes:
       - ./mc-lobby:/data
     environment:
@@ -37,8 +35,6 @@ services:
     restart: unless-stopped
     networks:
       - velocity
-    # ports:
-    #   - "25567:25565"
     volumes:
       - ./mc-server1:/data
     environment:
