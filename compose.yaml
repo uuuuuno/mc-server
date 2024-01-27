@@ -1,0 +1,50 @@
+services:
+# velocity
+  velocity: 
+    container_name: mc-velocity
+    image: itzg/bungeecord
+    restart: unless-stopped
+    networks:
+      - velocity-network
+    volumes: 
+      - ./mc-velocity:/server
+    ports:
+      - "25565:25565"
+    environment:
+      TYPE: VELOCITY 
+      MEMORY: 512M
+# lobby
+  lobby:
+    container_name: mc-lobby
+    image: itzg/minecraft-server
+    restart: unless-stopped
+    networks:
+      - velocity-network
+    # ports:
+    #   - "25566:25565"
+    volumes:
+      - ./mc-lobby:/data
+    environment:
+      EULA: TRUE
+      VERSION: 1.20.1
+      TYPE: PAPER
+      MEMORY: 3G
+# server 1
+  server1:
+    container_name: mc-server1
+    image: itzg/minecraft-server
+    restart: unless-stopped
+    networks:
+      - velocity-network
+    # ports:
+    #   - "25567:25565"
+    volumes:
+      - ./mc-server1:/data
+    environment:
+      EULA: TRUE
+      VERSION: 1.20.1
+      TYPE: PAPER
+      MEMORY: 3G
+networks:
+  vepocity:
+    name: velocity-network
