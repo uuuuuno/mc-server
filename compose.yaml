@@ -9,7 +9,7 @@ services:
     volumes: 
       - ./mc-velocity:/server
     ports:
-      - "25565:25565"
+      - "25565:25577"
     environment:
       TYPE: VELOCITY 
       MEMORY: 512M
