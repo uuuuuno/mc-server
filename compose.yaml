@@ -29,6 +29,7 @@ services:
       VERSION: 1.20.1
       TYPE: PAPER
       MEMORY: 3G
+      ONLINE_MODE: FALSE
 # server 1
   server1:
     container_name: mc-server1
@@ -45,6 +46,7 @@ services:
       VERSION: 1.20.1
       TYPE: PAPER
       MEMORY: 3G
+      ONLINE_MODE: FALSE
 networks:
   velocity:
     name: velocity-network
