@@ -1,39 +1,39 @@
-# Minecraft Server
+# Minecraft Servers
 
-Этот репозиторий содержит конфигурацию docker-compose для запуска связки серверов Minecraft, включающей прокси, лобби и сервер1.
+This repository contains a docker-compose configuration for running a Minecraft server setup, including a proxy, lobby, and server1.
 
-## Подготовка
+## Setup
 
-Перед запуском серверов убедитесь, что вы обновили `velocity secret` в следующих файлах:
+Before starting the servers, make sure you have updated the `velocity secret` in the following files:
 
-- `./mc-velocity/forwarding.secret` (просто вставьте секрет в пустой файл)
+- `./mc-velocity/forwarding.secret` (just paste the secret into an empty file)
 - `./mc-lobby/config/paper-global.yml:100` (secret: 'YOUR-SECRET')
 - `./mc-server1/config/paper-global.yml:100` (secret: 'YOUR-SECRET')
 
-### Если вы хотите добавить еще серверы, выполните следующие шаги:
+### If you want to add more servers, follow these steps:
 
-1. Отредактируйте `compose.yaml`, добавив новый контейнер и присвоив ему container_name. Это потребуется во втором шаге.
+1. Edit `compose.yaml` to add a new container and assign it a container_name. This will be needed in step 2.
 
-2. Отредактируйте `./mc-velocity/velocity.toml`, добавив новый сервер в раздел `[servers]`. Пример: `container_name = "container_name:25565"`.
+2. Edit `./mc-velocity/velocity.toml` to add a new server in the `[servers]` section. Example: `container_name = "container_name:25565"`.
 
-Не забудьте создать папку для нового сервера с файлом `paper-global.yml` и указать в нем `velocity secret`. Также не забудьте отредактировать пути в `compose.yaml` для нового сервера.
+Don't forget to create a folder for the new server with a `paper-global.yml` file and specify the `velocity secret` in it. Also, remember to edit the paths in `compose.yaml` for the new server.
 
-## Начало работы
+## Getting Started
 
-Для запуска серверов вам потребуется установить `docker` и плагин `docker-compose-plugin`.
+To run the servers, you will need to have `docker` installed and the `docker-compose-plugin` plugin.
 
-Чтобы запустить серверы, выполните следующую команду:
+To start the servers, run the following command:
 
 ```shell
 docker compose up -d
 ```
 
-Это запустит серверы в фоновом режиме.
+This will start the servers in the background.
 
-Обратите внимание, что вначале серверам может потребоваться некоторое время для запуска. Вы можете проверить логи с помощью следующей команды:
+Note that the servers may take some time to start initially. You can check the logs with the following command:
 
 ```shell
 docker compose logs -f
 ```
 
-Как только серверы будут запущены и работают, вы сможете подключиться к ним, используя `IP-адрес:25565`.
+Once the servers are up and running, you will be able to connect to them using `IP-address:25565`.
